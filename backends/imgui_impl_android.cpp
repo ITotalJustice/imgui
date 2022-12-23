@@ -49,14 +49,9 @@ static ImGuiKey ImGui_ImplAndroid_KeyCodeToImGuiKey(int32_t key_code)
         case AKEYCODE_DPAD_DOWN:            return ImGuiKey_DownArrow;
         case AKEYCODE_PAGE_UP:              return ImGuiKey_PageUp;
         case AKEYCODE_PAGE_DOWN:            return ImGuiKey_PageDown;
-        case AKEYCODE_MOVE_HOME:            return ImGuiKey_Home;
-        case AKEYCODE_MOVE_END:             return ImGuiKey_End;
-        case AKEYCODE_INSERT:               return ImGuiKey_Insert;
-        case AKEYCODE_FORWARD_DEL:          return ImGuiKey_Delete;
         case AKEYCODE_DEL:                  return ImGuiKey_Backspace;
         case AKEYCODE_SPACE:                return ImGuiKey_Space;
         case AKEYCODE_ENTER:                return ImGuiKey_Enter;
-        case AKEYCODE_ESCAPE:               return ImGuiKey_Escape;
         case AKEYCODE_APOSTROPHE:           return ImGuiKey_Apostrophe;
         case AKEYCODE_COMMA:                return ImGuiKey_Comma;
         case AKEYCODE_MINUS:                return ImGuiKey_Minus;
@@ -68,36 +63,10 @@ static ImGuiKey ImGui_ImplAndroid_KeyCodeToImGuiKey(int32_t key_code)
         case AKEYCODE_BACKSLASH:            return ImGuiKey_Backslash;
         case AKEYCODE_RIGHT_BRACKET:        return ImGuiKey_RightBracket;
         case AKEYCODE_GRAVE:                return ImGuiKey_GraveAccent;
-        case AKEYCODE_CAPS_LOCK:            return ImGuiKey_CapsLock;
-        case AKEYCODE_SCROLL_LOCK:          return ImGuiKey_ScrollLock;
-        case AKEYCODE_NUM_LOCK:             return ImGuiKey_NumLock;
-        case AKEYCODE_SYSRQ:                return ImGuiKey_PrintScreen;
-        case AKEYCODE_BREAK:                return ImGuiKey_Pause;
-        case AKEYCODE_NUMPAD_0:             return ImGuiKey_Keypad0;
-        case AKEYCODE_NUMPAD_1:             return ImGuiKey_Keypad1;
-        case AKEYCODE_NUMPAD_2:             return ImGuiKey_Keypad2;
-        case AKEYCODE_NUMPAD_3:             return ImGuiKey_Keypad3;
-        case AKEYCODE_NUMPAD_4:             return ImGuiKey_Keypad4;
-        case AKEYCODE_NUMPAD_5:             return ImGuiKey_Keypad5;
-        case AKEYCODE_NUMPAD_6:             return ImGuiKey_Keypad6;
-        case AKEYCODE_NUMPAD_7:             return ImGuiKey_Keypad7;
-        case AKEYCODE_NUMPAD_8:             return ImGuiKey_Keypad8;
-        case AKEYCODE_NUMPAD_9:             return ImGuiKey_Keypad9;
-        case AKEYCODE_NUMPAD_DOT:           return ImGuiKey_KeypadDecimal;
-        case AKEYCODE_NUMPAD_DIVIDE:        return ImGuiKey_KeypadDivide;
-        case AKEYCODE_NUMPAD_MULTIPLY:      return ImGuiKey_KeypadMultiply;
-        case AKEYCODE_NUMPAD_SUBTRACT:      return ImGuiKey_KeypadSubtract;
-        case AKEYCODE_NUMPAD_ADD:           return ImGuiKey_KeypadAdd;
-        case AKEYCODE_NUMPAD_ENTER:         return ImGuiKey_KeypadEnter;
-        case AKEYCODE_NUMPAD_EQUALS:        return ImGuiKey_KeypadEqual;
-        case AKEYCODE_CTRL_LEFT:            return ImGuiKey_LeftCtrl;
         case AKEYCODE_SHIFT_LEFT:           return ImGuiKey_LeftShift;
         case AKEYCODE_ALT_LEFT:             return ImGuiKey_LeftAlt;
-        case AKEYCODE_META_LEFT:            return ImGuiKey_LeftSuper;
-        case AKEYCODE_CTRL_RIGHT:           return ImGuiKey_RightCtrl;
         case AKEYCODE_SHIFT_RIGHT:          return ImGuiKey_RightShift;
         case AKEYCODE_ALT_RIGHT:            return ImGuiKey_RightAlt;
-        case AKEYCODE_META_RIGHT:           return ImGuiKey_RightSuper;
         case AKEYCODE_MENU:                 return ImGuiKey_Menu;
         case AKEYCODE_0:                    return ImGuiKey_0;
         case AKEYCODE_1:                    return ImGuiKey_1;
@@ -135,6 +104,38 @@ static ImGuiKey ImGui_ImplAndroid_KeyCodeToImGuiKey(int32_t key_code)
         case AKEYCODE_X:                    return ImGuiKey_X;
         case AKEYCODE_Y:                    return ImGuiKey_Y;
         case AKEYCODE_Z:                    return ImGuiKey_Z;
+        #if __ANDROID_API__ > 9
+        case AKEYCODE_MOVE_HOME:            return ImGuiKey_Home;
+        case AKEYCODE_MOVE_END:             return ImGuiKey_End;
+        case AKEYCODE_INSERT:               return ImGuiKey_Insert;
+        case AKEYCODE_FORWARD_DEL:          return ImGuiKey_Delete;
+        case AKEYCODE_ESCAPE:               return ImGuiKey_Escape;
+        case AKEYCODE_META_LEFT:            return ImGuiKey_LeftSuper;
+        case AKEYCODE_CTRL_RIGHT:           return ImGuiKey_RightCtrl;
+        case AKEYCODE_META_RIGHT:           return ImGuiKey_RightSuper;
+        case AKEYCODE_CAPS_LOCK:            return ImGuiKey_CapsLock;
+        case AKEYCODE_SCROLL_LOCK:          return ImGuiKey_ScrollLock;
+        case AKEYCODE_NUM_LOCK:             return ImGuiKey_NumLock;
+        case AKEYCODE_SYSRQ:                return ImGuiKey_PrintScreen;
+        case AKEYCODE_BREAK:                return ImGuiKey_Pause;
+        case AKEYCODE_NUMPAD_0:             return ImGuiKey_Keypad0;
+        case AKEYCODE_NUMPAD_1:             return ImGuiKey_Keypad1;
+        case AKEYCODE_NUMPAD_2:             return ImGuiKey_Keypad2;
+        case AKEYCODE_NUMPAD_3:             return ImGuiKey_Keypad3;
+        case AKEYCODE_NUMPAD_4:             return ImGuiKey_Keypad4;
+        case AKEYCODE_NUMPAD_5:             return ImGuiKey_Keypad5;
+        case AKEYCODE_NUMPAD_6:             return ImGuiKey_Keypad6;
+        case AKEYCODE_NUMPAD_7:             return ImGuiKey_Keypad7;
+        case AKEYCODE_NUMPAD_8:             return ImGuiKey_Keypad8;
+        case AKEYCODE_NUMPAD_9:             return ImGuiKey_Keypad9;
+        case AKEYCODE_NUMPAD_DOT:           return ImGuiKey_KeypadDecimal;
+        case AKEYCODE_NUMPAD_DIVIDE:        return ImGuiKey_KeypadDivide;
+        case AKEYCODE_NUMPAD_MULTIPLY:      return ImGuiKey_KeypadMultiply;
+        case AKEYCODE_NUMPAD_SUBTRACT:      return ImGuiKey_KeypadSubtract;
+        case AKEYCODE_NUMPAD_ADD:           return ImGuiKey_KeypadAdd;
+        case AKEYCODE_NUMPAD_ENTER:         return ImGuiKey_KeypadEnter;
+        case AKEYCODE_NUMPAD_EQUALS:        return ImGuiKey_KeypadEqual;
+        case AKEYCODE_CTRL_LEFT:            return ImGuiKey_LeftCtrl;
         case AKEYCODE_F1:                   return ImGuiKey_F1;
         case AKEYCODE_F2:                   return ImGuiKey_F2;
         case AKEYCODE_F3:                   return ImGuiKey_F3;
@@ -147,11 +148,12 @@ static ImGuiKey ImGui_ImplAndroid_KeyCodeToImGuiKey(int32_t key_code)
         case AKEYCODE_F10:                  return ImGuiKey_F10;
         case AKEYCODE_F11:                  return ImGuiKey_F11;
         case AKEYCODE_F12:                  return ImGuiKey_F12;
+        #endif
         default:                            return ImGuiKey_None;
     }
 }
 
-int32_t ImGui_ImplAndroid_HandleInputEvent(AInputEvent* input_event)
+int ImGui_ImplAndroid_HandleInputEvent(AInputEvent* input_event)
 {
     ImGuiIO& io = ImGui::GetIO();
     int32_t event_type = AInputEvent_getType(input_event);
@@ -164,10 +166,12 @@ int32_t ImGui_ImplAndroid_HandleInputEvent(AInputEvent* input_event)
         int32_t event_action = AKeyEvent_getAction(input_event);
         int32_t event_meta_state = AKeyEvent_getMetaState(input_event);
 
-        io.AddKeyEvent(ImGuiMod_Ctrl,  (event_meta_state & AMETA_CTRL_ON)  != 0);
         io.AddKeyEvent(ImGuiMod_Shift, (event_meta_state & AMETA_SHIFT_ON) != 0);
         io.AddKeyEvent(ImGuiMod_Alt,   (event_meta_state & AMETA_ALT_ON)   != 0);
+        #if __ANDROID_API__ > 9
+        io.AddKeyEvent(ImGuiMod_Ctrl,  (event_meta_state & AMETA_CTRL_ON)  != 0);
         io.AddKeyEvent(ImGuiMod_Super, (event_meta_state & AMETA_META_ON)  != 0);
+        #endif
 
         switch (event_action)
         {
@@ -203,13 +207,16 @@ int32_t ImGui_ImplAndroid_HandleInputEvent(AInputEvent* input_event)
             // Physical mouse buttons (and probably other physical devices) also invoke the actions AMOTION_EVENT_ACTION_DOWN/_UP,
             // but we have to process them separately to identify the actual button pressed. This is done below via
             // AMOTION_EVENT_ACTION_BUTTON_PRESS/_RELEASE. Here, we only process "FINGER" input (and "UNKNOWN", as a fallback).
+            #if __ANDROID_API__ > 9
             if((AMotionEvent_getToolType(input_event, event_pointer_index) == AMOTION_EVENT_TOOL_TYPE_FINGER)
             || (AMotionEvent_getToolType(input_event, event_pointer_index) == AMOTION_EVENT_TOOL_TYPE_UNKNOWN))
+            #endif
             {
                 io.AddMousePosEvent(AMotionEvent_getX(input_event, event_pointer_index), AMotionEvent_getY(input_event, event_pointer_index));
                 io.AddMouseButtonEvent(0, event_action == AMOTION_EVENT_ACTION_DOWN);
             }
             break;
+        #if __ANDROID_API__ > 9
         case AMOTION_EVENT_ACTION_BUTTON_PRESS:
         case AMOTION_EVENT_ACTION_BUTTON_RELEASE:
             {
@@ -219,13 +226,18 @@ int32_t ImGui_ImplAndroid_HandleInputEvent(AInputEvent* input_event)
                 io.AddMouseButtonEvent(2, (button_state & AMOTION_EVENT_BUTTON_TERTIARY) != 0);
             }
             break;
+        #endif
+        #if __ANDROID_API__ > 9
         case AMOTION_EVENT_ACTION_HOVER_MOVE: // Hovering: Tool moves while NOT pressed (such as a physical mouse)
+        #endif
         case AMOTION_EVENT_ACTION_MOVE:       // Touch pointer moves while DOWN
             io.AddMousePosEvent(AMotionEvent_getX(input_event, event_pointer_index), AMotionEvent_getY(input_event, event_pointer_index));
             break;
+        #if __ANDROID_API__ > 9
         case AMOTION_EVENT_ACTION_SCROLL:
             io.AddMouseWheelEvent(AMotionEvent_getAxisValue(input_event, AMOTION_EVENT_AXIS_HSCROLL, event_pointer_index), AMotionEvent_getAxisValue(input_event, AMOTION_EVENT_AXIS_VSCROLL, event_pointer_index));
             break;
+        #endif
         default:
             break;
         }
